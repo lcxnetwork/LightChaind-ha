@@ -68,6 +68,7 @@ const TurtleCoind = function (opts) {
   this.dbReadCacheSize = opts.dbReadCacheSize || false
   this.feeAddress = opts.feeAddress || false
   this.feeAmount = opts.feeAmount || 0
+  this.validate = opts.validate 
 
   // starting sanity checks
   this._rpcQueryIp = (this.rpcBindIp === '0.0.0.0') ? '127.0.0.1' : this.rpcBindIp
@@ -386,6 +387,7 @@ TurtleCoind.prototype._buildargs = function () {
   if (this.dbReadCacheSize) args = util.format('%s --db-read-cache-size %s', args, this.dbReadCacheSize)
   if (this.feeAddress) args = util.format('%s --fee-address %s', args, this.feeAddress)
   if (this.feeAmount !== 0) args = util.format('%s --fee-amount %s', args, this.feeAmount)
+  if (this.validate) args = util.format('%s --validate %s', args, this.validate)
   return args.split(' ')
 }
 
