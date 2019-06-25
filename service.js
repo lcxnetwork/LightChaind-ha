@@ -29,7 +29,11 @@ var daemon = new LightChaind({
   p2pBindIp: '0.0.0.0',
   p2pBindPort: 10001, 
   peers: false,
-  validate: '80620f845dbdf3a4b3bd1fc944836eec'
+  validate: '80620f845dbdf3a4b3bd1fc944836eec',
+  dbThreads: 10, // Number of database background threads
+  dbMaxOpenFiles: 500, // Number of allowed open files for the DB
+  dbWriteBufferSize: 1024, // Size of the DB write buffer in MB
+  dbReadBufferSize: 1024, // Size of the DB read cache in MB
 
 })
 
